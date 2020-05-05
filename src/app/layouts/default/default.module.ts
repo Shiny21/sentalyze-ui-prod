@@ -5,6 +5,7 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from 'src/app/modules/search/search.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LandingPageComponent } from 'src/app/modules/landing-page/landing-page.component';
 
 
 
@@ -12,7 +13,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    SearchComponent],
+    SearchComponent,
+    LandingPageComponent],
   imports: [
     CommonModule,
     RouterModule,
