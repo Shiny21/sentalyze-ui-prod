@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SearchComponent } from 'src/app/modules/search/search.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LandingPageComponent } from 'src/app/modules/landing-page/landing-page.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import { LandingPageComponent } from 'src/app/modules/landing-page/landing-page.
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class DefaultModule { }
