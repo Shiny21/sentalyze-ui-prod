@@ -8,7 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LandingPageComponent } from 'src/app/modules/landing-page/landing-page.component';
 import {FormsModule} from '@angular/forms';
 import {SentimentsService} from 'src/app/services/sentiments.service'
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import {SentimentsService} from 'src/app/services/sentiments.service'
     CommonModule,
     RouterModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [SentimentsService]
 })
