@@ -7,7 +7,7 @@ import { SearchComponent } from 'src/app/modules/search/search.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LandingPageComponent } from 'src/app/modules/landing-page/landing-page.component';
 import {FormsModule} from '@angular/forms';
-
+import {SentimentsService} from 'src/app/services/sentiments.service'
 
 
 @NgModule({
@@ -21,6 +21,7 @@ import {FormsModule} from '@angular/forms';
     RouterModule,
     SharedModule,
     FormsModule
-  ]
+  ],
+  providers: [SentimentsService]
 })
 export class DefaultModule { }
