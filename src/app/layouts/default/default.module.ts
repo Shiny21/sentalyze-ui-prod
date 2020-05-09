@@ -9,6 +9,9 @@ import { LandingPageComponent } from 'src/app/modules/landing-page/landing-page.
 import {FormsModule} from '@angular/forms';
 import {SentimentsService} from 'src/app/services/sentiments.service'
 import {HttpClientModule} from '@angular/common/http';
+import {ApiEndpointGenerator} from 'src/app/utils/api-endpoint-generator';
+import {Configs} from 'src/app/config/config';
+import {Constants} from 'src/app/constants/constants';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,6 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [SentimentsService]
+  providers: [SentimentsService, ApiEndpointGenerator, Configs, Constants]
 })
 export class DefaultModule { }

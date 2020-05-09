@@ -2,7 +2,9 @@ import { Configs } from '../config/config';
 import { Constants } from '../constants/constants';
 import { UrlBuilder } from './url-builder';
 import { QueryStringParameters } from './query-string-parameters';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ApiEndpointGenerator {
 
     constructor(private configs: Configs, private constants: Constants) { }
