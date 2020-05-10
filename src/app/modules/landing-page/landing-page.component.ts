@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchCriteria } from 'src/app/models/search-criteria';
 import { SentimentsService } from 'src/app/services/sentiments.service';
+import { SearchResults } from 'src/app/models/search-results';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,6 +11,7 @@ import { SentimentsService } from 'src/app/services/sentiments.service';
 export class LandingPageComponent implements OnInit {
 
   searchCriteria: SearchCriteria = new SearchCriteria('');
+  searchResults: SearchResults;
 
   constructor(private sentimentService : SentimentsService) { }
 
@@ -18,8 +20,10 @@ export class LandingPageComponent implements OnInit {
 
   onSubmit(){
     console.log(this.searchCriteria)
-    this.sentimentService.getSentiments(this.searchCriteria.searchKeyword).subscribe((data: any[])=>{
+    this.sentimentService.getSentiments(this.searchCriteria.searchKeyword).subscribe((data: SearchResults)=>{
       console.log(data);
+      this.searchResults = data;
+      console.log(this.searchResults.scoreCountMap);
     })
   }
 

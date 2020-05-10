@@ -1,6 +1,6 @@
 import { ScoreCountMap } from './score-count-map';
 
-export class SourceMeta{
+export interface SourceMeta{
     application: string;
     scoreCountMap: ScoreCountMap[];
     totalCount: number;
