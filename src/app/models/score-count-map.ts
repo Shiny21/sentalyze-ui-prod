@@ -1,4 +1,4 @@
-export class ScoreCountMap{
+export interface ScoreCountMap{
     strong_positive: string;
     positive: string;
     neutral: string;

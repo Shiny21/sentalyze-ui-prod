@@ -1,4 +1,4 @@
-export class SentimentMeta {
+export interface SentimentMeta {
 
     uniqueId: string;
     application: string;

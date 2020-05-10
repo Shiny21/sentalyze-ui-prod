@@ -3,6 +3,7 @@ import { Constants } from '../constants/constants';
 import { UrlBuilder } from './url-builder';
 import { QueryStringParameters } from './query-string-parameters';
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ApiEndpointGenerator {
@@ -17,6 +18,7 @@ export class ApiEndpointGenerator {
         if (queryStringHandler) {
             queryStringHandler(urlBuilder.queryString);
         }
+        console.log('URL builder : ', urlBuilder.toString())
         return urlBuilder.toString();
     }
 
@@ -26,5 +28,15 @@ export class ApiEndpointGenerator {
         else
             return this.createUrlWithQueryParameters(this.constants.API_ACTION,
                 (qs: QueryStringParameters) => qs.push(this.constants.PARAM_KEYWORD, keyword));
+    }
+
+    public getHttpOptions() {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'x-api-key': this.configs.X_API_KEY
+            })
+        };
+        return httpOptions;
     }
 }
