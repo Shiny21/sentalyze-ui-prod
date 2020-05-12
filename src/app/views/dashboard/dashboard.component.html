@@ -2,7 +2,10 @@
   <app-dashboard-header [keyword]="keyword"></app-dashboard-header>
   <section class="content">
     <div class="container-fluid">
-      <app-summary [sourceList]="searchResults.applicationSentimentList"></app-summary>
+      <div *ngIf="searchResults">
+        <app-summary [sourceList]="searchResults.applicationSentimentList"></app-summary>
+      </div>
+      
     </div>
   </section>
 </div>

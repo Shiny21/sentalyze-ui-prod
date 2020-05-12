@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, BehaviorSubject } from 'rxjs';
+import { Observable, throwError} from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { ApiEndpointGenerator } from '../utils/api-endpoint-generator';
 import { SearchResults } from '../models/search-results';

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardHeaderComponent } from 'src/app/widgets/dashboard-header/dashboard-header.component';
 import {RouterModule} from '@angular/router';
 import { SummaryComponent } from './summary/summary.component';
+import { DataAnalyticsUtils } from '../utils/data-analytics-utils';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SummaryComponent } from './summary/summary.component';
   exports: [
     DashboardHeaderComponent,
     SummaryComponent
-  ]
+  ],
+  providers: [DataAnalyticsUtils]
 })
 export class WidgetsModule { }
