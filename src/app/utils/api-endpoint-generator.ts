@@ -33,7 +33,6 @@ export class ApiEndpointGenerator {
     public getHttpOptions() {
         const httpOptions = {
             headers: new HttpHeaders({
-                'Content-Type': 'application/json',
                 'x-api-key': this.configs.X_API_KEY
             })
         };
