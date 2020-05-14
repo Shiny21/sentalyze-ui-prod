@@ -10,12 +10,20 @@ import { DataAnalyticsUtils } from 'src/app/utils/data-analytics-utils';
 export class SummaryComponent implements OnInit {
 
   @Input() sourceList : SourceMeta;
+  tw_percent : number;
+  yo_percent: number;
+  re_percent: number;
+  tu_percent: number;
 
   constructor(private dataAnalyticsUtils : DataAnalyticsUtils) { }
 
   ngOnInit(): void {
     console.log('Here is the source list got from parent!! :) ',this.sourceList)
-    this.dataAnalyticsUtils.getAnalytics();
+    let percentMap = this.dataAnalyticsUtils.getSourceInPercentage(this.sourceList);
+    this.tu_percent = percentMap.get('TU');
+    this.tw_percent = percentMap.get('TW');
+    this.yo_percent = percentMap.get('YO');
+    this.re_percent = percentMap.get('RE');
   }
 
 }
