@@ -7,6 +7,7 @@ import { DataAnalyticsUtils } from '../utils/data-analytics-utils';
 import { DonutChartComponent } from './donut-chart/donut-chart.component';
 import { MorrisJsModule } from 'angular-morris-js';
 import { AreaChartComponent } from './area-chart/area-chart.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AreaChartComponent } from './area-chart/area-chart.component';
   imports: [
     CommonModule,
     RouterModule,
-    MorrisJsModule
+    MorrisJsModule,
+    NgApexchartsModule
   ],
   exports: [
     DashboardHeaderComponent,

@@ -55,7 +55,8 @@
               "node_modules/admin-lte/dist/js/demo.js",
               "node_modules/jquery/dist/jquery.slim.js",
               "node_modules/raphael/raphael.js",
-              "node_modules/morris.js/morris.js"
+              "node_modules/morris.js/morris.js",
+              "node_modules/apexcharts/dist/apexcharts.min.js"
 
             ]
           },
