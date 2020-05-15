@@ -4,19 +4,27 @@ import { DashboardHeaderComponent } from 'src/app/widgets/dashboard-header/dashb
 import {RouterModule} from '@angular/router';
 import { SummaryComponent } from './summary/summary.component';
 import { DataAnalyticsUtils } from '../utils/data-analytics-utils';
+import { DonutChartComponent } from './donut-chart/donut-chart.component';
+import { MorrisJsModule } from 'angular-morris-js';
+import { AreaChartComponent } from './area-chart/area-chart.component';
 
 @NgModule({
   declarations: [
     DashboardHeaderComponent,
-    SummaryComponent
+    SummaryComponent,
+    DonutChartComponent,
+    AreaChartComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MorrisJsModule
   ],
   exports: [
     DashboardHeaderComponent,
-    SummaryComponent
+    SummaryComponent,
+    DonutChartComponent,
+    AreaChartComponent
   ],
   providers: [DataAnalyticsUtils]
 })
