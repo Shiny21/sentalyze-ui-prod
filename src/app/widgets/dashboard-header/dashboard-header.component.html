@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2" style="margin-bottom: 0!important;">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">{{keyword}}</h1>
+                <h1 class="m-0 text-dark">{{keyword | titlecase}}</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -13,3 +13,6 @@
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#ff0000" type="ball-atom" [fullScreen]="true">
+    <p style="color: white"> Reading emotions... </p>
+    </ngx-spinner>
