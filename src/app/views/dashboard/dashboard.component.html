@@ -4,6 +4,42 @@
     <div class="container-fluid">
       <div *ngIf="searchResults">
         <app-summary [sourceList]="searchResults.applicationSentimentList"></app-summary>
+        <div class="row">
+          <section class="col-lg-5 connectedSortable">
+            <!-- donut chart here -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="margin-bottom: 0;">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Overall Sentiment Outlook
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                    <app-donut-chart [scoreCountMap]="searchResults.scoreCountMap"></app-donut-chart>              
+                  </div>  
+                
+              </div><!-- /.card-body -->
+            </div>
+          </section>
+          <section class="col-lg-7 connectedSortable">
+            <!-- area chart here -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="margin-bottom: 0;">
+                  <i class="fas fa-chart-area mr-1"></i>
+                    Sentiments across social networks
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                  <div class="chart" id="sales-chart" style="position: relative; height: 300px;">
+                    <app-area-chart [sourceList]="searchResults.applicationSentimentList"></app-area-chart>                    
+                  </div>  
+                
+              </div><!-- /.card-body -->
+            </div>
+          </section>
+        </div>
       </div>
       
     </div>
