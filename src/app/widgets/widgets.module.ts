@@ -8,8 +8,6 @@ import { DonutChartComponent } from './donut-chart/donut-chart.component';
 import { MorrisJsModule } from 'angular-morris-js';
 import { AreaChartComponent } from './area-chart/area-chart.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { NgxSpinnerModule } from "ngx-spinner";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     RouterModule,
     MorrisJsModule,
-    NgApexchartsModule,
-    NgxSpinnerModule,
-    BrowserAnimationsModule
+    NgApexchartsModule
   ],
   exports: [
     DashboardHeaderComponent,
