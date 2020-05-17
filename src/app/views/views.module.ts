@@ -6,6 +6,8 @@ import { LandingPageComponent } from 'src/app/views/landing-page/landing-page.co
 import {WidgetsModule} from 'src/app/widgets/widgets.module';
 import { FormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     WidgetsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   exports: [
     DashboardComponent,
