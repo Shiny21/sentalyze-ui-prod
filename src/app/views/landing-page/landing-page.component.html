@@ -73,33 +73,32 @@
         <div class="container-fluid p-0">
             <div class="row no-gutters">
 
-                <div class="col-lg-6 order-lg-2 text-white showcase-img"
-                    style="background-image: url('assets/img/sentalyze_logo.png');"></div>
-                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Fully Responsive Design</h2>
-                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will
-                        look great on any device, whether it's a phone, tablet, or desktop the page will behave
-                        responsively!</p>
+                <div class="col-lg-8 order-lg-2 text-white showcase-img"
+                    style="background-image: url('assets/img/sentiment_example.PNG');"></div>
+                <div class="col-lg-4 order-lg-1 my-auto showcase-text">
+                    <h2>Data to decision through AI!</h2>
+                    <p class="lead mb-0">Wish to buy a new product but not sure? Is this moview worth watching?
+                        What is "aatm nirbhar bharat"? What is all the buzz about? Search anything and find out people sentiment about the same
+                    </p>
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 text-white showcase-img"
-                    style="background-image: url('assets/img/bg-showcase-2.jpg');"></div>
-                <div class="col-lg-6 my-auto showcase-text">
-                    <h2>Updated For Bootstrap 4</h2>
-                    <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the
-                        way in mobile responsive web development! All of the themes on Start Bootstrap are now using
-                        Bootstrap 4!</p>
+                <div class="col-lg-8 text-white showcase-img"
+                    style="background-image: url('assets/img/demo_graph.PNG');"></div>
+                <div class="col-lg-4 my-auto showcase-text">
+                    <h2>Marketing cost Optimization</h2>
+                    <p class="lead mb-0">Just launched a new product? Find out how the people are reacting about the same over different platforms.
+                        Whether the money should be invested for marketing to attached customer and change the messaging based on people sentiments find out all of it here.
+                    </p>
                 </div>
             </div>
             <div class="row no-gutters">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img"
                     style="background-image: url('assets/img/bg-showcase-3.jpg');"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Easy to Use &amp; Customize</h2>
-                    <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand
-                        some deeper customization options. Out of the box, just add your content and images, and your
-                        new landing page will be ready to go!</p>
+                    <h2>Compare how people feel about products/people and situation</h2>
+                    <p class="lead mb-0">People over twitter prefer Amazon over Flipkart? :O Know where your rival products are topling your with the buzz words people are using to describe you.
+                        Know the mood of people. Unbashed and unbiased emotion of people about literally anything at any given moment. </p>
                 </div>
             </div>
         </div>
@@ -114,23 +113,22 @@
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                         <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="">
                         <h5>Margaret E.</h5>
-                        <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+                        <i>CEO at 2 din me paise double</i>
+                        <p class="font-weight-light mb-0">"This product help our product sales grow by about 50 percent. Thank You guys. Highly recommended!"</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                         <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="">
-                        <h5>Fred S.</h5>
-                        <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of
-                            super nice landing pages."</p>
+                        <h5>Chiklandu</h5>
+                        <p class="font-weight-light mb-0">"This site is great. Seems like some great developers have built it. Maza aa gya."</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                         <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="">
-                        <h5>Sarah W.</h5>
-                        <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to
-                            us!"</p>
+                        <h5>Queen</h5>
+                        <p class="font-weight-light mb-0">"New Dashboard is lit AF! Awsome experience..."</p>
                     </div>
                 </div>
             </div>
@@ -148,12 +146,16 @@
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     <form>
                         <div class="form-row">
+                            <!--<div class="col-12 col-md-9 mb-2 mb-md-0 alert alert-success" >
+                                Email has been registered
+                            </div>-->
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
                                 <input type="email" class="form-control form-control-lg"
-                                    placeholder="Enter your email...">
+                                    placeholder="Enter your email..." required minlength="4" [email]="true" [(ngModel)]="userSubscribe.emailId"
+                                        id="subscribeEmailId" name="subscribeEmailId" #name="ngModel">
                             </div>
                             <div class="col-12 col-md-3">
-                                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                                <button type="submit" (click)="subscribeUser()" class="btn btn-block btn-lg btn-primary">Sign up!</button>
                             </div>
                         </div>
                     </form>

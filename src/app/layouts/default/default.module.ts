@@ -9,6 +9,11 @@ import {ApiEndpointGenerator} from 'src/app/utils/api-endpoint-generator';
 import {Configs} from 'src/app/config/config';
 import {Constants} from 'src/app/constants/constants';
 import {ViewsModule} from 'src/app/views/views.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../../../environments/environment';
+import { UserSubscribeComponent } from '../../modules/user-subscribe/user-subscribe.component';
+import {UsersubscribeService} from 'src/app/services/usersubscribe.service'
 
 @NgModule({
   declarations: [
@@ -18,8 +23,10 @@ import {ViewsModule} from 'src/app/views/views.module';
     RouterModule,
     SharedModule,
     ViewsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [SentimentsService, ApiEndpointGenerator, Configs, Constants]
+  providers: [SentimentsService,UsersubscribeService, ApiEndpointGenerator, Configs, Constants]
 })
 export class DefaultModule { }

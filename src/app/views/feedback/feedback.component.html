@@ -1,0 +1,50 @@
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <h2 class="mb-1">Connect with us!</h2>  
+            </div>
+            <div class="row">
+                <p>Your opinions matter a lot! Please help us grow.</p>
+            </div>
+            <div class="row">
+                <div class="col-3 col-md-6 mb-6 mb-md-0">
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="col-6 col-md-6 mb-6 mb-md-0">
+                    <input type="text" id="name" name="name" [(ngModel)]="userFeedback.name"  #name="ngModel">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 col-md-6 mb-6 mb-md-0 mt-3">
+                    <label for="emailId">Email Address</label>
+                </div>
+                <div class="col-6 col-md-6 mb-6 mb-md-0 mt-3">
+                    <input type="text" id="emailId" name="emailId" [(ngModel)]="userFeedback.emailId"  #name="ngModel">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 col-md-6 mb-6 mb-md-0 mt-3">
+                    <label for="emailId">Phone Number</label>
+                </div>
+                <div class="col-6 col-md-6 mb-6 mb-md-0 mt-3">
+                    <input type="text" id="phone" name="phone" [(ngModel)]="userFeedback.phone"  #name="ngModel">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 col-md-6 mb-6 mb-md-0 mt-3">
+                    <label for="message">Message</label>
+                </div>
+                <div class="col-6 col-md-6 mb-6 mb-md-0 mt-3">
+                    <textarea id="message" name="message" [(ngModel)]="userFeedback.msg"  #name="ngModel" placeholder="Write something.." style="height:150px;width:300px;"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <button type="submit" (click)="submitFeedback()" class="btn btn-block btn-lg btn-primary">Save!</button>
+                </div>
+            </div>
+                
+        </div>
+    </div>
+</div>
