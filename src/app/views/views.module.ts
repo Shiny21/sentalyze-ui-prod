@@ -7,13 +7,16 @@ import {WidgetsModule} from 'src/app/widgets/widgets.module';
 import { FormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FeedbackComponent } from 'src/app/views/feedback/feedback.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SearchComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,
@@ -21,12 +24,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     RouterModule,
     NgxSpinnerModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
   exports: [
     DashboardComponent,
     SearchComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    FeedbackComponent
   ]
 })
 export class ViewsModule { }
