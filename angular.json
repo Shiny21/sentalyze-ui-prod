@@ -21,7 +21,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "plotly.min.js", "input": "./node_modules/plotly.js/dist/", "output": "./" }
             ],
             "styles": [
               "src/styles.css",

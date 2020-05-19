@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: '',
+    apiKey: 'AIzaSyBsSds9qqieydp0AwjlqwXC0GsvV2sZTP0',
     authDomain: "eqarus.firebaseapp.com",
     databaseURL: "https://eqarus.firebaseio.com",
     projectId: "eqarus",

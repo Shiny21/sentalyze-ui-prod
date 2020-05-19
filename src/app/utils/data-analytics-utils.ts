@@ -36,7 +36,8 @@ export class DataAnalyticsUtils {
         percentMap.set(this.constants.CATEGORIES.POS, this.getPercent(total_positive, total));
         percentMap.set(this.constants.CATEGORIES.NEG, this.getPercent(total_negative, total));
         percentMap.set(this.constants.CATEGORIES.NEUT, this.getPercent(neutral, total));
-
+        percentMap.set('total_positive',total_positive);
+        percentMap.set('total_negative',total_negative);
         console.log('getDonutChartInPercentage : ', percentMap);
 
         return percentMap;
