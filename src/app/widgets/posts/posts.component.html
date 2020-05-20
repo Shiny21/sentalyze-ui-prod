@@ -1,0 +1,53 @@
+<div class="card direct-chat direct-chat-warning">
+    <div class="card-header">
+        <h3 class="card-title" style="margin-bottom: 0;">Posts</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <!-- Conversations are loaded here -->
+        <div class="direct-chat-messages"  style="position: relative; height: 300px;">
+            <!-- Message. Default to the left -->
+            <div *ngFor="let sentMeta of responseList | keyvalue">
+                <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-left">{{sentMeta.value.userName}}</span>
+                        <span class="direct-chat-timestamp float-right">{{sentMeta.value.postDateTime | date:'EEEE, MMMM d, y, h:mm:ss a '}}</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="{{sentMeta.value.imageUrl}}" alt=""
+                    onerror="this.src='assets/img/npic.png';">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                        {{sentMeta.value.text}}
+                        <div class="icon" class="float-right">
+                            <span class="badge badge-success" style="margin-right: 10px;"
+                            *ngIf="sentMeta.value.category=='positive' || sentMeta.value.category=='strong_positive'">Good</span>
+                            <span class="badge badge-info" style="margin-right: 10px;"
+                            *ngIf="sentMeta.value.category=='neutral'">OK</span>
+                            <span class="badge badge-danger" style="margin-right: 10px;"
+                            *ngIf="sentMeta.value.category=='negative' || sentMeta.value.category=='strong_negative'">Bad</span>
+                            <i *ngIf="sentMeta.value.application=='TW'" class="fab fa-twitter"></i>
+                            <i *ngIf="sentMeta.value.application=='YO'" class="fab fa-youtube"></i>
+                            <i *ngIf="sentMeta.value.application=='RE'" class="fab fa-reddit"></i>
+                            <i *ngIf="sentMeta.value.application=='TU'" class="fab fa-tumblr"></i>
+                          </div>
+                    </div>
+                    
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+           
+            <!-- /.direct-chat-msg -->
+
+
+        </div>
+        <!--/.direct-chat-messages-->
+
+        <!-- /.direct-chat-pane -->
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer text-center">
+        <a href="javascript::">View All Posts</a>
+      </div>
+    <!-- /.card-footer-->
+</div>

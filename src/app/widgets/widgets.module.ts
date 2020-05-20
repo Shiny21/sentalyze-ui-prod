@@ -12,6 +12,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { SunburstComponent } from './sunburst/sunburst.component';
 import * as PlotlyJS from 'plotly.js/dist/plotly.js';
 import { PlotlyModule } from 'angular-plotly.js';
+import { PostsComponent } from './posts/posts.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 @NgModule({
@@ -21,7 +22,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     DonutChartComponent,
     AreaChartComponent,
     PieChartComponent,
-    SunburstComponent
+    SunburstComponent,
+    PostsComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     DonutChartComponent,
     AreaChartComponent,
     PieChartComponent,
-    SunburstComponent
+    SunburstComponent,
+    PostsComponent
   ],
   providers: [DataAnalyticsUtils]
 })

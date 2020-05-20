@@ -6,9 +6,9 @@ export class Constants {
     public readonly PARAM_KEYWORD: string = 'keyword';
 
     public readonly COLORS = {
-        Negative: "#e06060",
-        Positive: "#60e063",
-        Neutral: "#4287f5"
+        Negative: "#f75e5e",
+        Positive: "#4fc462",
+        Neutral: "#7c92f7"
     }
 
     public readonly SOURCE_MAP = {
