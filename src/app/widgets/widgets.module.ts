@@ -13,7 +13,9 @@ import { SunburstComponent } from './sunburst/sunburst.component';
 import * as PlotlyJS from 'plotly.js/dist/plotly.js';
 import { PlotlyModule } from 'angular-plotly.js';
 import { PostsComponent } from './posts/posts.component';
-
+import { ModalFailedComponent } from './modal-failed/modal-failed.component';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 PlotlyModule.plotlyjs = PlotlyJS;
 @NgModule({
   declarations: [
@@ -23,14 +25,16 @@ PlotlyModule.plotlyjs = PlotlyJS;
     AreaChartComponent,
     PieChartComponent,
     SunburstComponent,
-    PostsComponent
+    PostsComponent,
+    ModalFailedComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MorrisJsModule,
     NgApexchartsModule,
-    PlotlyModule
+    PlotlyModule,
+    NgbModule
   ],
   exports: [
     DashboardHeaderComponent,
@@ -39,8 +43,12 @@ PlotlyModule.plotlyjs = PlotlyJS;
     AreaChartComponent,
     PieChartComponent,
     SunburstComponent,
-    PostsComponent
+    PostsComponent,
+    ModalFailedComponent
   ],
-  providers: [DataAnalyticsUtils]
+  providers: [DataAnalyticsUtils, NgbModalConfig, NgbModal, NgbActiveModal],
+  entryComponents: [
+    ModalFailedComponent
+  ]
 })
 export class WidgetsModule { }
