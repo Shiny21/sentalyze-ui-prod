@@ -22,7 +22,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "plotly.min.js", "input": "./node_modules/plotly.js/dist/", "output": "./" }
+              {
+                "glob": "plotly.min.js",
+                "input": "./node_modules/plotly.js/dist/",
+                "output": "./"
+              }
             ],
             "styles": [
               "src/styles.css",
@@ -59,7 +63,6 @@
               "node_modules/raphael/raphael.js",
               "node_modules/morris.js/morris.js",
               "node_modules/apexcharts/dist/apexcharts.min.js"
-
             ]
           },
           "configurations": {
@@ -122,6 +125,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -153,6 +157,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "sentalyze-ui"
 }
