@@ -24,4 +24,12 @@ export class Constants {
         NEG: "Negative"
     }
 
+    public readonly WC_COLORS={
+        excellent: "#3d994c",
+        good: "#4fc462",
+        general: "#7c92f7",
+        bad: "#f75e5e",
+        ugly: "#b33434"
+    }
+
 }
