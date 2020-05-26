@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 import {ModalFailedComponent} from 'src/app/widgets/modal-failed/modal-failed.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Constants } from 'src/app/constants/constants';
 
 
 @Component({
@@ -15,8 +16,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class DashboardComponent implements OnInit {
   searchResults: SearchResults;
   keyword: string;
+  selectedKey: any;
   constructor(private sentimentService: SentimentsService, private route: ActivatedRoute,
-    private spinner: NgxSpinnerService, private modalService: NgbModal
+    private spinner: NgxSpinnerService, private modalService: NgbModal, private constant: Constants
   ) {}
 
   ngOnInit(): void {
@@ -42,6 +44,10 @@ export class DashboardComponent implements OnInit {
   openModal() {
     const modalRef = this.modalService.open(ModalFailedComponent, { centered: true, size: 'lg' });
     modalRef.componentInstance.keyword = this.keyword;
+  }
+
+  onSelect(key): void {
+    this.selectedKey = this.searchResults.token_count[key];
   }
 
 }

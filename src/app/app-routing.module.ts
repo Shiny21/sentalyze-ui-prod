@@ -6,6 +6,7 @@ import { SearchComponent } from './views/search/search.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
 import { FeedbackComponent } from './views/feedback/feedback.component';
 import { LandingPageComponent } from './views/landing-page/landing-page.component';
+import { WordCloudComponent } from './widgets/word-cloud/word-cloud.component';
 
 
 const routes: Routes = [{
@@ -16,7 +17,11 @@ const routes: Routes = [{
     component: LandingPageComponent
   },{
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    children: [{
+      path: 'tags',
+      component: WordCloudComponent
+    }]
   },{
     path: 'search',
     component: SearchComponent
