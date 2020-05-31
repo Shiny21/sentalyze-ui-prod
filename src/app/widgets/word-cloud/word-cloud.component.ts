@@ -3,7 +3,7 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4plugins_wordCloud from "@amcharts/amcharts4/plugins/wordCloud";
 import { Constants } from 'src/app/constants/constants';
-import { TokenList } from 'src/app/models/token-list';
+import { Token } from 'src/app/models/token';
 
 @Component({
   selector: 'app-word-cloud',
@@ -12,7 +12,7 @@ import { TokenList } from 'src/app/models/token-list';
 })
 export class WordCloudComponent implements OnInit, AfterViewInit {
 
-  @Input() tokenList: TokenList;
+  @Input() tokenList: Token[];
   @Input() type: string;
 
   constructor(private constants: Constants) { }
@@ -50,25 +50,20 @@ export class WordCloudComponent implements OnInit, AfterViewInit {
     series.accuracy = 2;
     series.labels.template.fill = am4core.color(this.constants.WC_COLORS[this.type]);
     series.labels.template.tooltipText = "{word}:\n[bold]{value}[/]";
-    series.data = this.parseSeriesData(this.tokenList);
-
+    series.data = this.tokenList;
     console.log('===> Series data after parsing : ', series.data);
 
     series.dataFields.word = "tag";
     series.dataFields.value = "count";
+    //series.dataFields.hidden = "posts";
   }
 
-  private parseSeriesData(tokenList: TokenList) {
+  private parseSeriesData(tokenList: Token[]) {
 
     let seriesData = []
-    for (let key in tokenList) {
-      let tagObj = {
-        "tag": String(),
-        "count": am4core.string
-      }
-      tagObj.tag = key;
-      tagObj.count = tokenList[key];
-      seriesData.push(tagObj);
+    tokenList.forEach
+    for (let token of tokenList) {
+      seriesData.push(token);
     }
     return seriesData;
 
