@@ -38,12 +38,12 @@ export class WordCloudComponent implements OnInit, AfterViewInit {
     /* console.log('===> Series data at start : ', series.data)
     console.log('===> token list ', this.tokenList) */
     //chart.fontFamily = "Courier New";
-    series.maxCount = 10;
+    /* series.maxCount = 10;
     series.minValue = 5; 
-    series.minWordLength = 3;
+    series.minWordLength = 3; */
     series.excludeWords = ["the", "an", "to"];
     series.randomness = 0.7;
-    series.minFontSize = 12;
+    series.minFontSize = 18;
     series.fontFamily = "Sans-serif";
     series.fontWeight = "300";
     series.rotationThreshold = 0.2;
