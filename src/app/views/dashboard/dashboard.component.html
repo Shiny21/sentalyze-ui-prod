@@ -4,19 +4,23 @@
   <div class="card card-primary card-outline card-outline-tabs">
     <div class="card-header p-0 border-bottom-0">
       <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-        <li class="pt-2 px-3">
+        <!-- <li class="pt-2 px-3">
           <h3 class="card-title" style="font-weight: 500;
           font-size: 1.2rem;
           color: dodgerblue;
           font-style: oblique;">{{keyword}}</h3>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home"
-            role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Analysis</a>
+            role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Sentiments</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile"
             role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Source</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-five-profile"
+            role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Time-Series</a>
         </li>
       </ul>
     </div>
@@ -121,7 +125,7 @@
                       <div class="card-header">
                         <h3 class="card-title" style="margin-bottom: 0;">
                           <i class="fas fa-chart-pie mr-1"></i>
-                          Emotional precipitation in %
+                            Emotional Distribution in %
                         </h3>
                       </div><!-- /.card-header -->
                       <div class="card-body">
@@ -167,6 +171,11 @@
               </div>
             </div>
           </section>
+        </div>
+        <div class="tab-pane fade" id="custom-tabs-five-profile" role="tabpanel"
+          aria-labelledby="custom-tabs-four-five-tab">
+          <!-- <app-dashboard-header [keyword]="keyword"></app-dashboard-header> -->
+          <h1>Work in progress..</h1>
         </div>
       </div>
     </div>

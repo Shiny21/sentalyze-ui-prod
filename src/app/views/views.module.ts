@@ -10,13 +10,15 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeedbackComponent } from 'src/app/views/feedback/feedback.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SearchComponent,
     LandingPageComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ComingSoonComponent
   ],
   imports: [
     CommonModule,

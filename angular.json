@@ -62,7 +62,8 @@
               "node_modules/jquery/dist/jquery.slim.js",
               "node_modules/raphael/raphael.js",
               "node_modules/morris.js/morris.js",
-              "node_modules/apexcharts/dist/apexcharts.min.js"
+              "node_modules/apexcharts/dist/apexcharts.min.js",
+              "src/assets/vendor/jquery-countdown/jquery.countdown.min.js"
             ]
           },
           "configurations": {
