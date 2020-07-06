@@ -1,0 +1,15 @@
+.parent {
+    position: relative;
+    width: 100%;
+}
+.child {
+    position: relative;
+    padding-bottom: calc(100% * 9 / 16);
+}
+.child > div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
