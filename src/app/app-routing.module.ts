@@ -7,6 +7,7 @@ import { AboutUsComponent } from './views/about-us/about-us.component';
 import { FeedbackComponent } from './views/feedback/feedback.component';
 import { LandingPageComponent } from './views/landing-page/landing-page.component';
 import { WordCloudComponent } from './widgets/word-cloud/word-cloud.component';
+import { ComingSoonComponent } from './views/coming-soon/coming-soon.component';
 
 
 const routes: Routes = [{
@@ -29,8 +30,8 @@ const routes: Routes = [{
     path: 'feedback',
     component: FeedbackComponent
   },{
-    path: 'aboutus',
-    component: AboutUsComponent
+    path: 'enterpriseAccess',
+    component: ComingSoonComponent
   }]
 }];
 

@@ -1,10 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="assets/img/sentalyze_logo_new.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-heavy">Sentalyze</span>
+    <a [routerLink]="['']" class="brand-link">
+      <img src="assets/img/logo-final.svg" alt="AdminLTE Logo">
+      <!-- <span class="brand-text font-weight-heavy">Sentalyze</span> -->
     </a>
 
     <!-- Sidebar -->
@@ -25,7 +24,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="./index.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General</p>
@@ -42,37 +41,55 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Compare</p>
                 </a>
+              </li> -->
+              <li class="nav-item">
+                <a [routerLink]="['/enterpriseAccess']" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Generate Reports
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/enterpriseAccess']" class="nav-link">
+                  <i class="nav-icon fas fa-comments"></i>
+                  <p>
+                    See posts
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/enterpriseAccess']" class="nav-link">
+                  <i class="nav-icon fas fa-database"></i>
+                  <p>
+                    Custom Data Source
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/enterpriseAccess']" class="nav-link">
+                  <i class="nav-icon fas fa-lightbulb"></i>
+                  <p>
+                    Advanced analytics
+                  </p>
+                </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Generate Reports
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-comments"></i>
-              <p>
-                See posts
-              </p>
-            </a>
-          </li>
-          <li class="nav-item ">
+          
+          <!-- <li class="nav-item ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-clock"></i>
               <p>
-                Time-series analysis
+                Time-series
+                <span class="right badge badge-danger">beta</span>
               </p>
             </a>
             
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a [routerLink]="['/enterpriseAccess']" class="nav-link">
               <i class="nav-icon fas fa-search"></i>
               <p>
                 Advance Search
@@ -89,7 +106,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a [routerLink]="['/enterpriseAccess']" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 FAQs
@@ -98,7 +115,7 @@
           </li>
           <li class="nav-header">API</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a [routerLink]="['/enterpriseAccess']" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Documentation</p>
             </a>
