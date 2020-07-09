@@ -13,7 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../../../environments/environment';
 import { UserSubscribeComponent } from '../../modules/user-subscribe/user-subscribe.component';
-import {UsersubscribeService} from 'src/app/services/usersubscribe.service'
+import {UsersubscribeService} from 'src/app/services/usersubscribe.service';
+import {TrendingTopicsService} from 'src/app/services/trending-topics.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,6 @@ import {UsersubscribeService} from 'src/app/services/usersubscribe.service'
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [SentimentsService,UsersubscribeService, ApiEndpointGenerator, Configs, Constants]
+  providers: [SentimentsService,UsersubscribeService, TrendingTopicsService, ApiEndpointGenerator, Configs, Constants]
 })
 export class DefaultModule { }
