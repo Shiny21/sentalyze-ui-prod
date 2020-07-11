@@ -13,3 +13,12 @@
     left: 0;
     right: 0;
 }
+.badge-purple {
+    color: #fff;
+    background-color: #5f4dee;
+}
+.badge{
+    font-weight: 600;
+    padding: .35em .35em;
+    border: 2px solid #5f4dee;
+}

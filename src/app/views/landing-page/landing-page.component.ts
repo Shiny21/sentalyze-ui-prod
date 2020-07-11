@@ -5,6 +5,7 @@ import { UserSubscribe} from 'src/app/models/user-subscribe';
 import { Router, NavigationExtras } from '@angular/router';
 import {UsersubscribeService} from 'src/app/services/usersubscribe.service';
 import { ToastrService } from "ngx-toastr";
+import {TrendingTopicsService} from 'src/app/services/trending-topics.service'
 
 
 @Component({
@@ -17,11 +18,15 @@ export class LandingPageComponent implements OnInit {
   searchCriteria: SearchCriteria = new SearchCriteria('');
   searchResults: SearchResults;
   userSubscribe: UserSubscribe = new UserSubscribe('');
+  trendingList : String[]
 
-  constructor(private router: Router, private usersubscribeService : UsersubscribeService,
+  constructor(private router: Router, private usersubscribeService : UsersubscribeService, private trendingService : TrendingTopicsService,
     private toastrService: ToastrService) { }
 
   ngOnInit(): void {
+    
+   this.trendingList = this.trendingService.showTrending();
+  
   }
 
   onSubmit() {
@@ -39,6 +44,26 @@ export class LandingPageComponent implements OnInit {
        this.usersubscribeService.createUserSubscription(this.userSubscribe);
     //   this.toastrService.clear;
       }
+
+  onClickTrendButton(event: any){
+    
+     
+     console.log("Trend Button pressed")
+     console.log(event.target.innerText)
+     var topic:string = event.target.innerText
+     if (topic.match('#'))
+     {
+      topic = topic.replace('#','')
+      this.searchCriteria.searchKeyword = topic
+     }
+     else {
+
+      this.searchCriteria.searchKeyword = topic
+     }
+     
+      
+
+  }
      
 
 }

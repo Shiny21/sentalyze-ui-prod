@@ -7,6 +7,6 @@ export class Configs {
     public readonly X_API_KEY: string = 'wAx9ccOSAKa02lrE3zSPnyMV7tUTyFzEJUcmu980';
 
     
-    public readonly ENABLE_MOCK_RESPONE: boolean = true;
+    public readonly ENABLE_MOCK_RESPONE: boolean = false;
     
 }
