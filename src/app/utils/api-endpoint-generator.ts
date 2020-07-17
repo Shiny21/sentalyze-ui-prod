@@ -30,6 +30,13 @@ export class ApiEndpointGenerator {
                 (qs: QueryStringParameters) => qs.push(this.constants.PARAM_KEYWORD, keyword));
     }
 
+    public getTSEndpoint(): string {
+        if (this.configs.ENABLE_MOCK_RESPONE)
+            return this.configs.TS_API_MOCK
+        else
+            return this.configs.TS_API_ENDPOINT
+    }
+
     public getHttpOptions() {
         const httpOptions = {
             headers: new HttpHeaders({

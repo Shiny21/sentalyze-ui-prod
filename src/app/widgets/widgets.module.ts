@@ -17,6 +17,7 @@ import { ModalFailedComponent } from './modal-failed/modal-failed.component';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
+import { TimeSeriesComponent } from './time-series/time-series.component';
 PlotlyModule.plotlyjs = PlotlyJS;
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     SunburstComponent,
     PostsComponent,
     ModalFailedComponent,
-    WordCloudComponent
+    WordCloudComponent,
+    TimeSeriesComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     SunburstComponent,
     PostsComponent,
     ModalFailedComponent,
-    WordCloudComponent
+    WordCloudComponent,
+    TimeSeriesComponent
   ],
   providers: [DataAnalyticsUtils, NgbModalConfig, NgbModal, NgbActiveModal],
   entryComponents: [
