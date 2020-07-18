@@ -5,26 +5,34 @@ import { catchError, retry } from 'rxjs/operators';
 import { TimeSeries } from '../models/time-series';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { ApiEndpointGenerator } from '../utils/api-endpoint-generator';
+import { Configs } from '../config/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimeSeriesService {
 
-  constructor(private http: HttpClient, private apiEndpointGenerator: ApiEndpointGenerator) { }
+  constructor(private http: HttpClient, private apiEndpointGenerator: ApiEndpointGenerator,
+    private configs: Configs) { }
 
-  timeSeriesUrl = 'https://9hu1ormjbh.execute-api.ap-south-1.amazonaws.com/dev/fetch-firebase-data';
-
-  getTimeSeriesData(timeSeriesRequest: TimeSeriesRequest): Observable<TimeSeries> {
+  getTimeSeriesData(timeSeriesRequest: TimeSeriesRequest): Observable<TimeSeries[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'content-type': 'application/json'
       })
     };
-    return this.http.post<TimeSeries>(this.apiEndpointGenerator.getTSEndpoint(), timeSeriesRequest, httpOptions)
+    if(this.configs.ENABLE_MOCK_RESPONE){
+      return this.http.get<TimeSeries[]>(this.apiEndpointGenerator.getTSEndpoint())
       .pipe(
         catchError(this.handleError)
       );
+    }else{
+      return this.http.post<TimeSeries[]>(this.apiEndpointGenerator.getTSEndpoint(), timeSeriesRequest, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
+    
   }
 
   private handleError(error: HttpErrorResponse) {

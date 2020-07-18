@@ -1,1 +1,8 @@
-<div id="chartdiv" ></div>
+<div *ngIf="availability">
+    <div id="chartdiv" ></div>
+</div>
+
+<div *ngIf="!availability">
+    <h4>Oops, time series data is not available for this keyword, please try other keyword or 
+        <a [routerLink]="['/enterpriseAccess']">subscribe</a> for enterprise features.</h4>
+</div>
