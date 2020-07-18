@@ -104,6 +104,7 @@ export class TimeSeriesComponent implements OnInit {
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.tooltip.disabled = true;
+    valueAxis.title.text = "Sentiments %";
 
     let series = chart.series.push(new am4charts.LineSeries());
     series.dataFields.dateX = "date";
