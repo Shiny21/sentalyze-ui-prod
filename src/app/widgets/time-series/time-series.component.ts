@@ -108,7 +108,7 @@ export class TimeSeriesComponent implements OnInit {
 
     let series = chart.series.push(new am4charts.LineSeries());
     series.dataFields.dateX = "date";
-    series.name = "Positive";
+    series.name = "Positive %";
     series.dataFields.valueY = "Positive";
     //series.tooltipHTML = "<img src='https://www.amcharts.com/lib/3/images/car.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>{valueY.value}</b></span>";
     series.tooltipText = "[#000]{valueY.value}[/]";
@@ -122,7 +122,7 @@ export class TimeSeriesComponent implements OnInit {
     series.fill = am4core.color("#4fc462");
 
     let series2 = chart.series.push(new am4charts.LineSeries());
-    series2.name = "Neutral";
+    series2.name = "Neutral %";
     series2.dataFields.dateX = "date";
     series2.dataFields.valueY = "Neutral";
     //series2.tooltipHTML = "<img src='https://www.amcharts.com/lib/3/images/motorcycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>{valueY.value}</b></span>";
@@ -138,7 +138,7 @@ export class TimeSeriesComponent implements OnInit {
     series2.fill = am4core.color("#7c92f7");
 
     let series3 = chart.series.push(new am4charts.LineSeries());
-    series3.name = "Negative";
+    series3.name = "Negative %";
     series3.dataFields.dateX = "date";
     series3.dataFields.valueY = "Negative";
     //series3.tooltipHTML = "<img src='https://www.amcharts.com/lib/3/images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>{valueY.value}</b></span>";

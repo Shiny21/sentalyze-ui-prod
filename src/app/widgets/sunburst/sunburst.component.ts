@@ -22,7 +22,7 @@ export class SunburstComponent implements OnInit {
   ngOnInit(): void {
     let values = []
     let percentMap = this.dataAnalyticsUtils.getDonutChartInPercentage(this.scoreCountMap);
-
+    let colorArray = []
     values.push(percentMap.get(this.constants.CATEGORIES.NEG));
     values.push(percentMap.get(this.constants.CATEGORIES.NEUT));
     values.push(percentMap.get(this.constants.CATEGORIES.POS));
@@ -32,6 +32,15 @@ export class SunburstComponent implements OnInit {
     values.push(this.dataAnalyticsUtils.getPercent(percentMap.get(this.constants.CATEGORIES.NEUT),percentMap.get(this.constants.CATEGORIES.NEUT)));
     values.push(this.dataAnalyticsUtils.getPercent(this.scoreCountMap.positive,percentMap.get('total_positive')));
     values.push(this.dataAnalyticsUtils.getPercent(this.scoreCountMap.strong_positive,percentMap.get('total_positive')));
+    if(percentMap.get(this.constants.CATEGORIES.POS) > percentMap.get(this.constants.CATEGORIES.NEG)){
+      colorArray.push(this.constants.COLORS.Positive);
+      colorArray.push(this.constants.COLORS.Negative);
+      colorArray.push(this.constants.COLORS.Neutral);
+    }else{
+      colorArray.push(this.constants.COLORS.Negative);
+      colorArray.push(this.constants.COLORS.Positive);
+      colorArray.push(this.constants.COLORS.Neutral);
+    }
     let graph_data = {
       data: [{
         type: "sunburst",
@@ -47,7 +56,7 @@ export class SunburstComponent implements OnInit {
         margin: { l: 0, r: 0, b: 0, t: 0 },
         width: 500,
         height: 300,
-        sunburstcolorway:[this.constants.COLORS.Negative,this.constants.COLORS.Positive,this.constants.COLORS.Neutral]
+        sunburstcolorway:colorArray
       }
     };
     this.graph.data = graph_data.data;
