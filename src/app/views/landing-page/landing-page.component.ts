@@ -5,7 +5,8 @@ import { UserSubscribe} from 'src/app/models/user-subscribe';
 import { Router, NavigationExtras } from '@angular/router';
 import {UsersubscribeService} from 'src/app/services/usersubscribe.service';
 import { ToastrService } from "ngx-toastr";
-import {TrendingTopicsService} from 'src/app/services/trending-topics.service'
+import {TrendingTopicsService} from 'src/app/services/trending-topics.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -20,12 +21,23 @@ export class LandingPageComponent implements OnInit {
   userSubscribe: UserSubscribe = new UserSubscribe('');
   trendingList : String[]
 
-  constructor(private router: Router, private usersubscribeService : UsersubscribeService, private trendingService : TrendingTopicsService,
+  constructor(private spinner: NgxSpinnerService,private router: Router, private usersubscribeService : UsersubscribeService, private trendingService : TrendingTopicsService,
     private toastrService: ToastrService) { }
 
   ngOnInit(): void {
+   this.spinner.show();
+    let trending = this.trendingService.showTrending().subscribe((data: String[]) => {
+    this.trendingList = data;
+    console.log(this.trendingList);
+    this.spinner.hide();
+    trending.unsubscribe();
     
-   this.trendingList = this.trendingService.showTrending();
+  },
+  error => {
+    console.log('### errror occured!!', error);
+    this.spinner.hide();
+  
+  })
   
   }
 

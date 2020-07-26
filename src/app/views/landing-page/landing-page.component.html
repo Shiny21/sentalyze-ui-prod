@@ -29,6 +29,11 @@
                                   <button class="ml-2 badge badge-pill badge-purple"  (click)="onClickTrendButton($event)"> {{trends}}</button>
                                 </div>
                               </div>
+                              <div class="row mt-3 ml-2" style="position: relative">
+                                <ngx-spinner bdColor="#ffffff" size="small" color="#5f4dee" type="ball-clip-rotate-multiple" [fullScreen]="false">
+                                    <p style="color: #5f4dee"><b> Loading Trends...</b> </p>
+                                  </ngx-spinner>
+                                </div>
                                     
                             
                         </div>
