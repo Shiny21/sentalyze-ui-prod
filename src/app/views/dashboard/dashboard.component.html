@@ -4,26 +4,37 @@
   <div id="bg">
     <div class="card card-primary card-outline card-outline-tabs" style="min-height: 675px; margin-bottom: 0;">
       <div class="card-header p-0 border-bottom-0">
-        <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-          <!-- <li class="pt-2 px-3">
-            <h3 class="card-title" style="font-weight: 500;
-            font-size: 1.2rem;
-            color: dodgerblue;
-            font-style: oblique;">{{keyword}}</h3>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home"
-              role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Sentiments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile"
-              role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Source</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-five-profile"
-              role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Time-Series</a>
-          </li>
-        </ul>
+        <div class="row">
+          <div class="col-lg-8">
+            <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill"
+                  href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home"
+                  aria-selected="true">Sentiments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill"
+                  href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile"
+                  aria-selected="false">Source</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill"
+                  href="#custom-tabs-five-profile" role="tab" aria-controls="custom-tabs-four-profile"
+                  aria-selected="false">Time-Series</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <li class="pt-2 px-3" style="float: right; list-style-type: none;">
+              <h3 class="card-title" style="font-weight: 620;
+              font-size: 1.2rem;
+              color: #5f4dee;">{{keyword | titlecase}}</h3>
+            </li>
+          </div>
+
+
+        </div>
+
       </div>
       <div class="card-body">
         <div class="tab-content" id="custom-tabs-four-tabContent">
@@ -33,7 +44,7 @@
             <section class="content">
               <div class="container-fluid justify-content-center flex-grow-1">
                 <div *ngIf="searchResults">
-  
+
                   <div class="row">
                     <section class="col-lg-5 connectedSortable">
                       <!-- donut chart here -->
@@ -48,7 +59,7 @@
                           <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
                             <app-donut-chart [scoreCountMap]="searchResults.scoreCountMap"></app-donut-chart>
                           </div>
-  
+
                         </div><!-- /.card-body -->
                       </div>
                     </section>
@@ -66,20 +77,20 @@
                               [class.selected]="key === selectedKey" (click)="onSelect(key)" >
                                 <a class="nav-link active" data-toggle="tab">Excellent</a>
                               </li> -->
-                              <li class="nav-item">
-                                <a class="nav-link active" href="#excellent" data-toggle="tab">Excellent</a>
+                              <li class="nav-item" >
+                                <a class="nav-link" [ngClass]="{'active': activeTab ==1}" href="#excellent" data-toggle="tab">Excellent</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="#good" data-toggle="tab">Good</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#general" data-toggle="tab">General</a>
+                                <a class="nav-link" [ngClass]="{'active': activeTab ==2}" href="#general" data-toggle="tab">General</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="#bad" data-toggle="tab">Bad</a>
                               </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#ugly" data-toggle="tab">Ugly</a>
+                              <li class="nav-item" >
+                                <a class="nav-link" [ngClass]="{'active': activeTab ==0}"  href="#ugly" data-toggle="tab">Ugly</a>
                               </li>
                             </ul>
                           </div>
@@ -90,7 +101,8 @@
                             <!-- <div class="chart tab-pane active" id="excellent" style="position: relative; height: 300px;">
                               <app-word-cloud [tokenList] = "selectedKey"></app-word-cloud>                         
                           </div> -->
-                            <div class="chart tab-pane active" id="excellent" style="position: relative; height: 300px;">
+                            <div class="chart tab-pane" [ngClass]="{'active': activeTab ==1}" id="excellent"
+                              style="position: relative; height: 300px;">
                               <app-word-cloud [tokenList]="searchResults.token_count.strong_positive" type="excellent">
                               </app-word-cloud>
                             </div>
@@ -98,7 +110,7 @@
                               <app-word-cloud [tokenList]="searchResults.token_count.positive" type="good">
                               </app-word-cloud>
                             </div>
-                            <div class="chart tab-pane" id="general" style="position: relative; height: 300px;">
+                            <div class="chart tab-pane" [ngClass]="{'active': activeTab ==2}" id="general" style="position: relative; height: 300px;">
                               <app-word-cloud [tokenList]="searchResults.token_count.neutral" type="general">
                               </app-word-cloud>
                             </div>
@@ -106,7 +118,7 @@
                               <app-word-cloud [tokenList]="searchResults.token_count.negative" type="bad">
                               </app-word-cloud>
                             </div>
-                            <div class="chart tab-pane" id="ugly" style="position: relative; height: 300px;">
+                            <div class="chart tab-pane" [ngClass]="{'active': activeTab ===0}" id="ugly" style="position: relative; height: 300px;">
                               <app-word-cloud [tokenList]="searchResults.token_count.strong_negative" type="ugly">
                               </app-word-cloud>
                             </div>
@@ -126,14 +138,14 @@
                         <div class="card-header">
                           <h3 class="card-title" style="margin-bottom: 0;">
                             <i class="fas fa-chart-pie mr-1"></i>
-                              Emotional Distribution in %
+                            Emotional Distribution in %
                           </h3>
                         </div><!-- /.card-header -->
                         <div class="card-body">
                           <div class="chart tab-pane" style="position: relative; height: 300px;">
                             <app-sunburst [scoreCountMap]="searchResults.scoreCountMap"></app-sunburst>
                           </div>
-  
+
                         </div><!-- /.card-body -->
                       </div>
                     </section>
@@ -148,7 +160,7 @@
             <section class="content">
               <div class="container-fluid">
                 <div *ngIf="searchResults">
-  
+
                   <app-summary [sourceList]="searchResults.applicationSentimentList"></app-summary>
                   <div class="row">
                     <section class="col-lg-12 connectedSortable">
@@ -164,7 +176,7 @@
                           <div class="chart" id="sales-chart" style="position: relative; height: 300px;">
                             <app-area-chart [sourceList]="searchResults.applicationSentimentList"></app-area-chart>
                           </div>
-  
+
                         </div><!-- /.card-body -->
                       </div>
                     </section>
@@ -176,7 +188,26 @@
           <div class="tab-pane fade" id="custom-tabs-five-profile" role="tabpanel"
             aria-labelledby="custom-tabs-four-five-tab">
             <!-- <app-dashboard-header [keyword]="keyword"></app-dashboard-header> -->
-           <app-time-series [keyword]="keyword"></app-time-series> 
+            <div class="row">
+              <section class="col-lg-12 connectedSortable">
+                <!-- donut chart here -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title" style="margin-bottom: 0;">
+                      <i class="fas fa-chart-area mr-1"></i>
+                      Variation in sentiments across time
+                    </h3>
+                  </div><!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="chart" id="sales-chart" style="position: relative; height: 500px;">
+                      <app-time-series [keyword]="keyword"></app-time-series>
+                    </div>
+
+                  </div><!-- /.card-body -->
+                </div>
+              </section>
+            </div>
+
           </div>
         </div>
       </div>
