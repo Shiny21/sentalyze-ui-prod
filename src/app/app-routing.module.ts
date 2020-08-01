@@ -8,13 +8,23 @@ import { FeedbackComponent } from './views/feedback/feedback.component';
 import { LandingPageComponent } from './views/landing-page/landing-page.component';
 import { WordCloudComponent } from './widgets/word-cloud/word-cloud.component';
 import { ComingSoonComponent } from './views/coming-soon/coming-soon.component';
+import { ErrorPageComponent } from './views/error-page/error-page.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [{
   path: '',
   component: DefaultComponent,
   children: [{
+    path: 'error',
+    component: ErrorPageComponent
+  },
+  {
     path: '',
+    component: LandingPageComponent
+  },
+  {
+    path: ':sessionId',
     component: LandingPageComponent
   },{
     path: 'dashboard',
@@ -33,13 +43,16 @@ const routes: Routes = [{
   },
   {
     path: 'search',
-    component: SearchComponent
+    component: SearchComponent,
+    canActivate: [AuthGuardService]
   },{
     path: 'feedback',
-    component: FeedbackComponent
+    component: FeedbackComponent,
+    canActivate: [AuthGuardService]
   },{
     path: 'enterpriseAccess',
-    component: ComingSoonComponent
+    component: ComingSoonComponent,
+    canActivate: [AuthGuardService]
   }]
 }];
 
