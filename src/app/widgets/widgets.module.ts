@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardHeaderComponent } from 'src/app/widgets/dashboard-header/dashboard-header.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { SummaryComponent } from './summary/summary.component';
 import { DataAnalyticsUtils } from '../utils/data-analytics-utils';
 import { DonutChartComponent } from './donut-chart/donut-chart.component';
@@ -18,7 +18,18 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
 import { TimeSeriesComponent } from './time-series/time-series.component';
+import { DashboardComponent } from '../views/dashboard/dashboard.component';
 PlotlyModule.plotlyjs = PlotlyJS;
+const routes: Routes = [
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [{
+      path: 'tags',
+      component: WordCloudComponent
+    }]
+  }
+]
 @NgModule({
   declarations: [
     DashboardHeaderComponent,
@@ -34,7 +45,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule.forChild(routes),
     MorrisJsModule,
     NgApexchartsModule,
     PlotlyModule,
@@ -50,7 +61,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     PostsComponent,
     ModalFailedComponent,
     WordCloudComponent,
-    TimeSeriesComponent
+    TimeSeriesComponent,
+    RouterModule
   ],
   providers: [DataAnalyticsUtils, NgbModalConfig, NgbModal, NgbActiveModal],
   entryComponents: [

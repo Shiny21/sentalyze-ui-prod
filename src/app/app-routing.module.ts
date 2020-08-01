@@ -24,6 +24,14 @@ const routes: Routes = [{
       component: WordCloudComponent
     }]
   },{
+    path: 'reload',
+    component: DashboardComponent,
+    children: [{
+      path: 'tags',
+      component: WordCloudComponent
+    }]
+  },
+  {
     path: 'search',
     component: SearchComponent
   },{

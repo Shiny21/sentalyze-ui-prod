@@ -8,6 +8,8 @@ import { TimeSeries } from 'src/app/models/time-series';
 import { DataAnalyticsUtils } from 'src/app/utils/data-analytics-utils';
 import { DatePipe } from '@angular/common';
 import { Constants } from 'src/app/constants/constants';
+import { TimeSeriesResponse } from 'src/app/models/time-series-response';
+import { NavigationExtras, Router } from '@angular/router';
 @Component({
   selector: 'app-time-series',
   templateUrl: './time-series.component.html',
@@ -17,11 +19,12 @@ export class TimeSeriesComponent implements OnInit {
 
   @Input() keyword: string;
   timeSeriesRequest = new TimeSeriesRequest();
-  timeSeriesResponse: TimeSeries[];
+  timeSeriesResponse: TimeSeriesResponse;
   availability: boolean = true;
+  availableKeywordList: string[];
 
   constructor(private timeSeriesService: TimeSeriesService, private dataAnalyticsUtils: DataAnalyticsUtils,
-    private constants: Constants) { }
+    private constants: Constants, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -34,12 +37,14 @@ export class TimeSeriesComponent implements OnInit {
 
   private fetchTSDataFromAPI(timeSeriesRequest) {
     console.log('Executing api to fetch time-series data for keyword : ', this.keyword);
-    let sentiment = this.timeSeriesService.getTimeSeriesData(timeSeriesRequest).subscribe((data: TimeSeries[]) => {
-      
+    let sentiment = this.timeSeriesService.getTimeSeriesData(timeSeriesRequest).subscribe((data: TimeSeriesResponse) => {
+
       this.timeSeriesResponse = data;
       console.log(this.timeSeriesResponse);
-      
-      let chartData = this.prepareChartDataforTS(this.timeSeriesResponse);
+      let chartData = this.prepareChartDataforTS(this.timeSeriesResponse.timeSeriesDataList);
+      if (this.availability == false) {
+        this.availableKeywordList = this.timeSeriesResponse.kewordList;
+      }
 
       this.renderTSchart(chartData);
       //this.spinner.hide();
@@ -52,16 +57,16 @@ export class TimeSeriesComponent implements OnInit {
       })
   }
 
-  private prepareChartDataforTS(timeSeriesResponse) {
-    
-    let timeSeries : TimeSeries[] = timeSeriesResponse.timeSeriesDataList;
-    timeSeries.sort(function(x,y){
+  private prepareChartDataforTS(timeSeriesDataList) {
+
+    let timeSeries: TimeSeries[] = timeSeriesDataList;
+    timeSeries.sort(function (x, y) {
       return x.timeStamp - y.timeStamp
     })
     console.log('Inside prepare chart data!! found timeSeries as : ', timeSeries);
     let chartData = []
     console.log('Preparing time-series chart data, records found : ', timeSeries.length);
-    if(timeSeries.length==0){
+    if (timeSeries.length == 0) {
       this.availability = false;
     }
     for (let key in timeSeries) {
@@ -104,7 +109,7 @@ export class TimeSeriesComponent implements OnInit {
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.tooltip.disabled = true;
-    valueAxis.title.text = "Sentiments %";
+    valueAxis.title.text = "Fraction of sentiments";
 
     let series = chart.series.push(new am4charts.LineSeries());
     series.dataFields.dateX = "date";
@@ -164,9 +169,9 @@ export class TimeSeriesComponent implements OnInit {
     chart.legend.position = "top";
 
     // axis ranges
-    let range = dateAxis.axisRanges.create();
-    range.date = new Date(2001, 0, 1);
-    range.endDate = new Date(2003, 0, 1);
+    /* let range = dateAxis.axisRanges.create();
+    range.date = new Date(2020, 6, 19);
+    range.endDate = new Date(2020, 7, 13);
     range.axisFill.fill = chart.colors.getIndex(7);
     range.axisFill.fillOpacity = 0.2;
 
@@ -177,7 +182,7 @@ export class TimeSeriesComponent implements OnInit {
     range.label.verticalCenter = "bottom";
 
     let range2 = dateAxis.axisRanges.create();
-    range2.date = new Date(2007, 0, 1);
+    range2.date = new Date(2020, 7, 3);
     range2.grid.stroke = chart.colors.getIndex(7);
     range2.grid.strokeOpacity = 0.6;
     range2.grid.strokeDasharray = "5,2";
@@ -187,7 +192,22 @@ export class TimeSeriesComponent implements OnInit {
     range2.label.inside = true;
     range2.label.rotation = 90;
     range2.label.horizontalCenter = "right";
-    range2.label.verticalCenter = "bottom";
+    range2.label.verticalCenter = "bottom"; */
+  }
+
+  onClickTrendButton(event: any) {
+
+
+    console.log("Trend Button pressed")
+    console.log(event.target.innerText)
+    let topic: string = event.target.innerText;
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        keyword: topic
+      }
+    }
+    this.router.navigate(['reload'], navigationExtras);
+    //window.location.reload();
   }
 
 }

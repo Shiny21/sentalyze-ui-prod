@@ -45,4 +45,14 @@ export class ApiEndpointGenerator {
         };
         return httpOptions;
     }
+
+    public getHttpOptionsTS() {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'content-type': 'application/json',
+                'x-api-key': this.configs.X_API_KEY_TS
+            })
+        };
+        return httpOptions;
+    }
 }
