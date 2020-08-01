@@ -1,0 +1,70 @@
+
+
+.imagebg {
+	background-image: url("src/assets/img/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	max-height: 100%;
+	background-attachment: fixed;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+    bottom: 0;
+	
+  opacity: initial;
+  filter: alpha(opacity=100);
+}
+
+.form-container
+{
+	background-color: #fff;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+    border-radius: 8px;	
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+#btn1
+{
+color: #fff;
+background-color: #5f4dee;
+
+}
+
+.rating
+{
+position: relative;
+display: flex;
+flex-direction: row-reverse;
+border: 1px solid #000;
+box-sizing: border-box;
+height: 38px;
+background: linear-gradient(to right,#f00, #ff0, #0f0);
+
+}
+.rating input
+{
+	display: none;
+}
+.rating label
+{
+display: block;
+cursor: pointer;
+width: 60px;
+height: 36px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.5s;
+background: #fff;
+color: #000;
+font-size: 20px;
+border-right: 1px solid #000;
+
+}
+
+.rating input[type="radio"]:hover ~ label,
+.rating input[type="radio"]:checked ~ label
+{
+	background: transparent;
+
+}
