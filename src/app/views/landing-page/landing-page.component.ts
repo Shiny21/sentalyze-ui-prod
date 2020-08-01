@@ -30,15 +30,24 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    console.log(this.activatedRoute.snapshot.paramMap.get('sessionId'));
-    this.sessionId = this.activatedRoute.snapshot.paramMap.get('sessionId');
+    this.activatedRoute.queryParams.subscribe(params => {
+      console.log('Query param in landing route !!! : ==> ',params);
+      this.sessionId = params['sessionId'];
+      if(!this.sessionId){
+        this.sessionId = null;
+      }
+    });
+    /* console.log(this.activatedRoute.snapshot.paramMap.get('sessionId'));
+    this.sessionId = this.activatedRoute.snapshot.paramMap.get('sessionId'); */
    /*  if(null == this.sessionId){
       this.router.navigate(['error']);
     } */
     if(this.storageService.getSessionData() != null && null == this.sessionId){
-        console.log('Internal route with valid session, skipping session validation');
-     }else{
-      let sessionSubscibe = this.storageService.validateSessionId(this.sessionId).subscribe(querySnapshot => {
+      console.log('Session id not found in query params, setting it from local session storage!')
+        this.sessionId = this.storageService.getSessionData().sessionId;
+     }
+      
+     let sessionSubscibe = this.storageService.validateSessionId(this.sessionId).subscribe(querySnapshot => {
         if(querySnapshot.size > 0){
           querySnapshot.forEach(doc => {
             console.log(doc.data());
@@ -62,14 +71,15 @@ export class LandingPageComponent implements OnInit {
       error => {
         console.log('Error in validating sessionId from back-end', error);
         sessionSubscibe.unsubscribe();
+        this.storageService.removeAllkeys();
         this.spinner.hide();
         this.router.navigate(['error']);
       });
       console.log('Inside landing component..!',this.sessionDetails);
-      if(null == this.sessionDetails){
+      /* if(null == this.sessionDetails){
         this.router.navigate(['error']);
-      }
-     }
+      } */
+     
     
     
     let trending = this.trendingService.showTrending().subscribe((data: String[]) => {
