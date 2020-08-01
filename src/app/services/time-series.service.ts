@@ -6,6 +6,7 @@ import { TimeSeries } from '../models/time-series';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { ApiEndpointGenerator } from '../utils/api-endpoint-generator';
 import { Configs } from '../config/config';
+import { TimeSeriesResponse } from '../models/time-series-response';
 
 @Injectable({
   providedIn: 'root'
@@ -15,19 +16,16 @@ export class TimeSeriesService {
   constructor(private http: HttpClient, private apiEndpointGenerator: ApiEndpointGenerator,
     private configs: Configs) { }
 
-  getTimeSeriesData(timeSeriesRequest: TimeSeriesRequest): Observable<TimeSeries[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'content-type': 'application/json'
-      })
-    };
+  getTimeSeriesData(timeSeriesRequest: TimeSeriesRequest): Observable<TimeSeriesResponse> {
+    
     if(this.configs.ENABLE_MOCK_RESPONE){
-      return this.http.get<TimeSeries[]>(this.apiEndpointGenerator.getTSEndpoint())
+      return this.http.get<TimeSeriesResponse>(this.apiEndpointGenerator.getTSEndpoint())
       .pipe(
         catchError(this.handleError)
       );
     }else{
-      return this.http.post<TimeSeries[]>(this.apiEndpointGenerator.getTSEndpoint(), timeSeriesRequest, httpOptions)
+      return this.http.post<TimeSeriesResponse>(this.apiEndpointGenerator.getTSEndpoint(), timeSeriesRequest,
+      this.apiEndpointGenerator.getHttpOptionsTS())
       .pipe(
         catchError(this.handleError)
       );
