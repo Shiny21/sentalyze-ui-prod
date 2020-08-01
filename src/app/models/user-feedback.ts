@@ -1,6 +1,6 @@
 export class UserFeedback {
     constructor(public name: string,
         public emailId: string,
-        public phone: string,
+        public experience: string,
         public msg: string){}
 }
