@@ -11,6 +11,7 @@ import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeedbackComponent } from 'src/app/views/feedback/feedback.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     SearchComponent,
     LandingPageComponent,
     FeedbackComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
+    ErrorPageComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     DashboardComponent,
     SearchComponent,
     LandingPageComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ErrorPageComponent
   ]
 })
 export class ViewsModule { }
