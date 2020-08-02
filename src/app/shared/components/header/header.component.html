@@ -8,7 +8,19 @@
         <a [routerLink]="['']" class="nav-link">Home</a>
       </li>
       
+      
     </ul>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item my-auto mx-2">
+            <span style="font-weight: 500; color: #5b6470;">{{userLoggedIn.firstName | titlecase}}</span>
+          </li>
+          <li class="nav-item">
+            <img class="card-img-top img-responsive photo rounded-circle" style="width: 40px;"
+            src="{{ userLoggedIn.photoUrl }}">
+          </li>
+      </ul>
+  </div>
 
     <!-- SEARCH FORM -->
     <!-- <form class="form-inline ml-3">
