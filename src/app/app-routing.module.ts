@@ -20,26 +20,25 @@ const routes: Routes = [{
     component: ErrorPageComponent
   },
   {
-    path: '',
+    path: 'landing',
     component: LandingPageComponent
   },
   {
-    path: ':sessionId',
-    component: LandingPageComponent
-  },{
     path: 'dashboard',
     component: DashboardComponent,
     children: [{
       path: 'tags',
       component: WordCloudComponent
-    }]
+    }],
+    canActivate: [AuthGuardService]
   },{
     path: 'reload',
     component: DashboardComponent,
     children: [{
       path: 'tags',
       component: WordCloudComponent
-    }]
+    }],
+    canActivate: [AuthGuardService]
   },
   {
     path: 'search',
@@ -53,7 +52,8 @@ const routes: Routes = [{
     path: 'enterpriseAccess',
     component: ComingSoonComponent,
     canActivate: [AuthGuardService]
-  }]
+  },
+  { path: '',   redirectTo: 'landing', pathMatch: 'full' }]
 }];
 
 @NgModule({
