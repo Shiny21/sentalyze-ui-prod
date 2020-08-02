@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { UserLoginDetail } from '../models/UserLoginDetail';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {DocumentSnapshot} from '@angular/fire/firestore';
@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StorageService {
+
+  @Output() getSessionObj: EventEmitter<any> = new EventEmitter();
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -24,6 +26,7 @@ export class StorageService {
   setSessionData(loginDetails: UserLoginDetail) {
     this.setObjectValue("sessionId", loginDetails.sessionId);
     this.setObjectValue(loginDetails.sessionId, loginDetails);
+    this.getSessionObj.emit(loginDetails);
   }
 
   getSessionData(): UserLoginDetail {
