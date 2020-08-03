@@ -36,6 +36,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     SearchComponent,
     LandingPageComponent,
     FeedbackComponent,
+        ComingSoonComponent,
     ErrorPageComponent
   ]
 })
